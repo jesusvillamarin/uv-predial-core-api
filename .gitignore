@@ -1,0 +1,5 @@
+# Package directories
+node_modules
+
+# Webpack directories
+.webpack

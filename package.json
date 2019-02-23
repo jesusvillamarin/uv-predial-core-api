@@ -1,0 +1,36 @@
+{
+  "name": "uv-predial-core-rest",
+  "version": "1.0.0",
+  "description": "Back-end del portal en línea para realizar el pago del impuesto predial.",
+  "main": "handler.js",
+  "scripts": {
+    "start": "sls offline start",
+    "deploy": "sls deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balsecaedwin/uv-predial-core-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/balsecaedwin/uv-predial-core-api/issues"
+  },
+  "homepage": "https://github.com/balsecaedwin/uv-predial-core-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "reflect-metadata": "^0.1.13",
+    "serverless-http": "^1.9.0",
+    "typeorm": "^0.2.13"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "serverless-offline": "^4.4.0",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3"
+  }
+}

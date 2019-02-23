@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "@functions/*": ["functions/*"],
+      "@commons/*": ["commons/*"],
+      "@config/*": ["config/*"],
+      "@resources/*": ["resources/*"],
+      "@services/*": ["services/*"],
+      "@entities/*": ["persistence/entities/*"],
+      "@repositories/*": ["persistence/repositories/*"]
+    },
+    "sourceMap": true,
+    "target": "es6",
+    "lib": [
+      "esnext"
+    ],
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "dist",
+    "build",
+    "node_modules"
+  ]
+}

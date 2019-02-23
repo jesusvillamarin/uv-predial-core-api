@@ -1,0 +1,17 @@
+service:
+  name: ${file(./config/env.yml):NAME}
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  environment: ${file(./config/env.yml)}
+  stage: ${file(./config/env.yml):STAGE}
+  region: ${file(./config/env.yml):REGION}
+
+functions:
+  - ${file(./functions/debts/index-functions.yml)}
+  # - ${file(./functions/estate/index-functions.yml)}
+  # - ${file(./functions/owners/index-functions.yml)}
+
+plugins:
+  - serverless-offline
