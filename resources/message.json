@@ -45,5 +45,6 @@
     "UV.PREDIAL.MSG.40": "the ctc must be an 7-digit number, Fail: ${ctc}.",
     "UV.PREDIAL.MSG.41": "debtdate: ${date} doesn't have a valid format.",
     "UV.PREDIAL.MSG.42": "initialTax or totalTax don't have a valid format.",
-    "UV.PREDIAL.MSG.43": "monthlyInterest or totalInterest don't have a valid format."
+    "UV.PREDIAL.MSG.43": "monthlyInterest or totalInterest don't have a valid format.",
+    "UV.PREDIAL.MSG.44": "the estate with the cfn: ${cfn} isn't registered in the database."
 }
