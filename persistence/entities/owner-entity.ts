@@ -101,7 +101,7 @@ export class Owner extends BaseEntity {
 
     static getByEmail(email: string) {
         return this.createQueryBuilder('owner')
-            .where('owner.email = :email', {email})
+            .where('owner.email = :email', { email })
             .getOne();
     }
 

@@ -124,7 +124,7 @@ export class Estate extends BaseEntity {
 
     static getByCfn(cfn: number) {
         return this.createQueryBuilder('estate')
-            .where('estate.cfn = :cfn', {cfn})
+            .where('estate.cfn = :cfn', { cfn })
             .getOne();
     }
 
