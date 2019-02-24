@@ -1,0 +1,6 @@
+createDebt:
+  handler: functions/debts/create.handler
+  events:
+    - http:
+        path: debts
+        method: post

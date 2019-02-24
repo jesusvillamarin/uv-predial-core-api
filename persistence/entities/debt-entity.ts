@@ -1,4 +1,4 @@
-import { Entity, BaseEntity, PrimaryColumn, Column, Timestamp, ManyToOne, Double } from 'typeorm';
+import { Entity, BaseEntity, PrimaryColumn, Column, Timestamp, ManyToOne, Double, JoinColumn } from 'typeorm';
 import { PaymentStatusEnum } from '@commons/enums';
 import { Estate } from './estate-entity';
 
@@ -18,7 +18,7 @@ export class Debt extends BaseEntity {
         type: 'date',
         nullable: false
     })
-    debtDate?: Date;
+    debtDate: Date;
 
     @Column({
         name: 'INITIAL_TAX',
@@ -27,7 +27,7 @@ export class Debt extends BaseEntity {
         scale: 2,
         nullable: false
     })
-    initialTax?: number;
+    initialTax: number;
 
     @Column({
         name: 'MONTHLY_INTEREST',
@@ -36,7 +36,7 @@ export class Debt extends BaseEntity {
         scale: 2,
         nullable: false
     })
-    monthlyInterest?: number;
+    monthlyInterest: number;
 
     @Column({
         name: 'TOTAL_INTEREST',
@@ -45,7 +45,7 @@ export class Debt extends BaseEntity {
         scale: 2,
         nullable: false
     })
-    totalInterest?: number;
+    totalInterest: number;
 
     @Column({
         name: 'TOTAL_TAX',
@@ -54,7 +54,7 @@ export class Debt extends BaseEntity {
         scale: 2,
         nullable: false
     })
-    totalTax?: number;
+    totalTax: number;
     
     @Column({
         name: 'PAYMENT_STATUS',
@@ -62,7 +62,7 @@ export class Debt extends BaseEntity {
         enum: PaymentStatusEnum,
         nullable: false
     })
-    paymentStatus: PaymentStatusEnum;
+    paymentStatus?: PaymentStatusEnum;
 
     @Column({
         name: 'CREATION_DATE',
@@ -79,6 +79,13 @@ export class Debt extends BaseEntity {
     modificationDate?: Timestamp;
 
     @ManyToOne(type => Estate, estate => estate.debts)
+    @JoinColumn({ name: "CFN_ESTATE" })
     estate: Estate;
+
+    static getByCtc(ctc: number) {
+        return this.createQueryBuilder('debt')
+            .where('debt.ctc = :ctc', { ctc })
+            .getOne();
+    }
 
 }

@@ -12,7 +12,7 @@ export class EstateService {
         if(!owner) throw new ConflictException('UV.PREDIAL.MSG.14', { email: body.email });
 
         const estate = await EstateRepository.getByCfn(body.cfn);
-        if(estate) throw new ConflictException('UV.PREDIAL.MSG.29', { cfn: body.cfn });
+        if(estate) throw new ConflictException('UV.PREDIAL.MSG.30', { cfn: body.cfn });
         
         body.owner = owner; // adding the owner to the request body
         const estateCreated = await EstateRepository.createEstate(body);

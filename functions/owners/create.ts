@@ -1,5 +1,5 @@
 import Response from "@commons/response";
-import { BadRequestException, handlerException } from "@commons/exceptions";
+import { BadRequestException, handlerException, InternalServerException } from "@commons/exceptions";
 import { parseSex, parseMaritalStatus } from "@commons/enums";
 import UVPredialUtils from "@commons/uv-predial-utils";
 import { OwnerService } from "@services/owner-service";
@@ -32,6 +32,7 @@ module.exports.handler = async (event, context, callback) => {
     }
     catch(errors) {
         console.error('HANDLER. Error exception.');
-        return handlerException(errors);
+        if(errors instanceof BadRequestException) return handlerException(errors);
+        return handlerException(new InternalServerException('UV.PREDIAL.COMMON.500', { errors }));
     }
 };
