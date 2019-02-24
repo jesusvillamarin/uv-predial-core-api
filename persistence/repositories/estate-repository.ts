@@ -36,6 +36,38 @@ export class EstateRepository {
         }
     }
 
+    static async getByCck(type: string, locality: string, region: string,
+        block: string, lot: string, level: string, department: string) {
+        console.info('REPOSITORY. Starting getByCck ...');
+
+        let conn: Connection;
+        try {
+            conn = await pool;
+            if(!conn || !conn.isConnected)
+                conn = await createConnection(connectionOpts);
+
+            const estate = await Estate.getByCck(type, locality, region, block, lot, level, department);
+            if(!estate) return null;
+
+            console.info('REPOSITORY. Ending getByCck ...');
+            return estate;
+        }
+        catch(errors) {
+            console.error('REPOSITORY. Error exception.');
+            if(conn) {
+                try {
+                    await conn.close();
+                }
+                catch(errors) {
+                    console.error('Error when trying to close the connection to the database.');
+                    throw new InternalServerException('UV.PREDIAL.COMMON.500', { errors });
+                }
+            }
+
+            throw new InternalServerException('UV.PREDIAL.COMMON.500', { errors });
+        }
+    }
+
     static async createEstate(body: any) {
         console.info('REPOSITORY. Starting createEstate ...');
 

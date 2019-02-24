@@ -17,6 +17,7 @@ export class DebtService {
         body.estate = estate; // adding the estate to the request body
         const debtCreated = await DebtRepository.createDebt(body);
         if(!(debtCreated instanceof Debt)) throw new ConflictException('UV.PREDIAL.MSG.33');
+        delete debtCreated.estate.debts;
 
         console.info('SERVICE. Ending createDebt ...');
         return debtCreated;

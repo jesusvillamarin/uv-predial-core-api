@@ -46,5 +46,6 @@
     "UV.PREDIAL.MSG.41": "debtdate: ${date} doesn't have a valid format.",
     "UV.PREDIAL.MSG.42": "initialTax or totalTax don't have a valid format.",
     "UV.PREDIAL.MSG.43": "monthlyInterest or totalInterest don't have a valid format.",
-    "UV.PREDIAL.MSG.44": "the estate with the cfn: ${cfn} isn't registered in the database."
+    "UV.PREDIAL.MSG.44": "the estate with the cfn: ${cfn} isn't registered in the database.",
+    "UV.PREDIAL.MSG.45": "the estate with the cck: ${cck} isn't registered in the database."
 }

@@ -6,9 +6,9 @@ module.exports.handler = async (event, context, callback) => {
     console.info(`HANDLER. Starting function: ${ context.functionName } ...`);
 
     try {
-        if(!event.pathParameters) throw new BadRequestException('UV.PREDIAL.MSG.01');
+        if(!event.queryStringParameters) throw new BadRequestException('UV.PREDIAL.MSG.01');
 
-        const { cfn } = event.pathParameters;
+        const { cfn } = event.queryStringParameters;
 
         if(!cfn) throw new BadRequestException('UV.PREDIAL.MSG.16');
         if(isNaN(+cfn)) throw new BadRequestException('UV.PREDIAL.MGS.21', { cfn: cfn });

@@ -15,6 +15,19 @@ export class EstateService {
         return estate;
     }
 
+    static async getEstateByCck(params: any) {
+        console.info('SERVICE. Starting getEstateByCfn ...');
+        const { type, locality, region, block, lot, level, department } = params;
+        const cck = type + locality + region + block + lot + level + department;
+
+        const estate = await EstateRepository.getByCck(type, locality, region, block, lot, level, department);
+        
+        if(!estate) throw new ConflictException('UV.PREDIAL.MSG.45', { cck });
+
+        console.info('SERVICE. Ending getEstateByCfn ...');
+        return { cck, estate };
+    }
+
     static async createEstate(body: any) {
         console.info('SERVICE. Starting createEstate ...');
 

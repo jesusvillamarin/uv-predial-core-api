@@ -130,4 +130,19 @@ export class Estate extends BaseEntity {
             .getOne();
     }
 
+    static getByCck(type: string, locality: string, region: string,
+        block: string, lot: string, level: string, department: string) {
+        return this.createQueryBuilder('estate')
+            .leftJoinAndSelect('estate.owner', 'owner')
+            .leftJoinAndSelect('estate.debts', 'debts')
+            .where('estate.type = :type', { type })
+            .andWhere('estate.locality = :locality', { locality })
+            .andWhere('estate.region = :region', { region })
+            .andWhere('estate.block = :block', { block })
+            .andWhere('estate.lot = :lot', { lot })
+            .andWhere('estate.level = :level', { level })
+            .andWhere('estate.department = :department', { department })
+            .getOne();
+    }
+
 }

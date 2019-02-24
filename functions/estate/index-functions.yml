@@ -1,8 +1,15 @@
 getEstateByCfn:
-  handler: functions/estate/details.handler
+  handler: functions/estate/search-by-cfn.handler
   events:
     - http:
-        path: estate/{cfn}
+        path: estate/cfn
+        method: get
+
+getEstateByCck:
+  handler: functions/estate/search-by-cck.handler
+  events:
+    - http:
+        path: estate/cck
         method: get
 
 createEstate:
