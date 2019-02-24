@@ -1,0 +1,6 @@
+createEstate:
+  handler: functions/estate/create.handler
+  events:
+    - http:
+        path: estate
+        method: post

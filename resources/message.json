@@ -15,5 +15,21 @@
     "UV.PREDIAL.MSG.10": "phoneNumber: ${number} doesn't have a valid format.",
     "UV.PREDIAL.MSG.11": "email: ${email} doesn't have a valid format.",
     "UV.PREDIAL.MSG.12": "the email: ${email} is already registered.",
-    "UV.PREDIAL.MSG.13": "an error occurred while trying to save the owner."
+    "UV.PREDIAL.MSG.13": "an error occurred while trying to save the owner.",
+    "UV.PREDIAL.MSG.14": "the email: ${email} isn't registered in the database",
+    "UV.PREDIAL.MSG.15": "an error occurred while trying to save the estate.",
+    "UV.PREDIAL.MSG.16": "cfn is required.",
+    "UV.PREDIAL.MSG.17": "The following parameters are required: type, locality, region, block, lot, level, department.",
+    "UV.PREDIAL.MSG.18": "suburbName and streetName are required.",
+    "UV.PREDIAL.MSG.19": "streetNumber and apartmentNumber are required.",
+    "UV.PREDIAL.MSG.20": "email is required.",
+    "UV.PREDIAL.MSG.21": "the cfn must be an 8-digit number, Fail: ${cfn}.",
+    "UV.PREDIAL.MSG.22": "the 'type' parameter must be an 1-digit number, Fail: ${type}.",
+    "UV.PREDIAL.MSG.23": "the 'locality' parameter must be an 3-digit number, Fail: ${locality}.",
+    "UV.PREDIAL.MSG.24": "the 'region' parameter must be an 2-digit number, Fail: ${region}.",
+    "UV.PREDIAL.MSG.25": "the 'block' parameter must be an 3-digit number, Fail: ${block}.",
+    "UV.PREDIAL.MSG.26": "the 'lot' parameter must be an 3-digit number, Fail: ${lot}.",
+    "UV.PREDIAL.MSG.27": "the 'level' parameter must be an 2-digit number, Fail: ${level}.",
+    "UV.PREDIAL.MSG.28": "the 'department' parameter must be an 3-digit number, Fail: ${department}.",
+    "UV.PREDIAL.MSG.29": "the estate with the CFN: ${cfn} is already registered."
 }

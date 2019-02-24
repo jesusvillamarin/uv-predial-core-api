@@ -1,4 +1,4 @@
-import { Entity, BaseEntity, PrimaryColumn, Column, Timestamp, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, BaseEntity, PrimaryColumn, Column, Timestamp, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
 import { Owner } from './owner-entity';
 import { Debt } from './debt-entity';
 
@@ -116,9 +116,16 @@ export class Estate extends BaseEntity {
     modificationDate?: Timestamp;
 
     @ManyToOne(type => Owner, owner => owner.estate)
+    @JoinColumn({ name: "OWNER_ID" })
     owner: Owner;
 
     @OneToMany(type => Debt, debt => debt.estate)
     debts: Debt[];
+
+    static getByCfn(cfn: number) {
+        return this.createQueryBuilder('estate')
+            .where('estate.cfn = :cfn', {cfn})
+            .getOne();
+    }
 
 }
