@@ -99,9 +99,9 @@ export class Owner extends BaseEntity {
     @OneToMany(type => Estate, estate => estate.owner)
     estate: Estate[];
 
-    static getById(id: number) {
+    static getByEmail(email: string) {
         return this.createQueryBuilder('owner')
-            .where('owner.id = :id', {id})
+            .where('owner.email = :email', {email})
             .getOne();
     }
 

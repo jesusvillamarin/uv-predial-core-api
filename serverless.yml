@@ -9,9 +9,10 @@ provider:
   region: ${file(./config/env.yml):REGION}
 
 functions:
-  - ${file(./functions/debts/index-functions.yml)}
+  - ${file(./functions/owners/index-functions.yml)}
   # - ${file(./functions/estate/index-functions.yml)}
-  # - ${file(./functions/owners/index-functions.yml)}
+  - ${file(./functions/debts/index-functions.yml)}
 
 plugins:
   - serverless-offline
+  - serverless-webpack

@@ -8,7 +8,6 @@ export class Estate extends BaseEntity {
     @PrimaryColumn({
         name: 'CFN',
         type: 'int',
-        length: 8,
         generated: false,
         nullable: false
     })

@@ -1,13 +1,13 @@
-getDebtByCtc:
-  handler: functions/debts/details.handler
-  events:
-    - http:
-        method: get
-        path: debts/{ctc}
-
 getDebts:
   handler: functions/debts/list.handler
   events:
     - http:
-        method: get
         path: debts
+        method: get
+
+getDebtByCtc:
+  handler: functions/debts/details.handler
+  events:
+    - http:
+        path: debts/{ctc}
+        method: get

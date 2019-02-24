@@ -8,7 +8,6 @@ export class Debt extends BaseEntity {
     @PrimaryColumn({
         name: 'CTC',
         type: 'int',
-        length: 7,
         generated: false,
         nullable: false
     })

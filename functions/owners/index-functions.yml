@@ -1,0 +1,6 @@
+createOwner:
+  handler: functions/owners/create.handler
+  events:
+    - http:
+        path: owners
+        method: post

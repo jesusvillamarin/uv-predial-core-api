@@ -1,22 +1,11 @@
-import express from 'express';
-import serverless from 'serverless-http';
-import bodyParser from 'body-parser';
+import Response from "@commons/response";
 
-const app = express();
+module.exports.handler = async (event, context, callback) => {
+    console.info(`HANDLER. Starting function: ${ context.functionName } ...`);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+    const { ctc } = event.pathParameters;
 
-app.get('/debts/:ctc', function(req, res) {
-    const ctc = req.params.ctc;
-
-    res.status(200).send({
-        statusCode: 200,
-        body: {
-            description: 'Ok',
-            message: `Details of debt with CTC: ${ctc}`
-        }
-    });
-});
-
-module.exports.handler = serverless(app);
+    return Response.Ok({
+        message: `Details of debt with CTC: ${ ctc }`
+    })
+};

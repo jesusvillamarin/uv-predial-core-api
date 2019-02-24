@@ -1,0 +1,19 @@
+{
+    "UV.PREDIAL.COMMON.500": "Internal Error Server ${errors}",
+    "UV.PREDIAL.COMMON.400": "Bad Request: ${errors}",
+    "UV.PREDIAL.COMMON.401": "Unauthorized",
+    "UV.PREDIAL.COMMON.404": "Not Found",
+    "UV.PREDIAL.MSG.01": "path parameters are required.",
+    "UV.PREDIAL.MSG.02": "body parameters are required.",
+    "UV.PREDIAL.MSG.03": "name and firstSurname are required.",
+    "UV.PREDIAL.MSG.04": "sex and maritalStatus are required.",
+    "UV.PREDIAL.MSG.05": "bithdate and bithplace are required.",
+    "UV.PREDIAL.MSG.06": "phoneNumber is required.",
+    "UV.PREDIAL.MSG.07": "sex: ${sex} doesn't have a valid format.",
+    "UV.PREDIAL.MSG.08": "maritalStatus: ${status} doesn't have a valid format.",
+    "UV.PREDIAL.MSG.09": "birthdate: ${date} doesn't have a valid format.",
+    "UV.PREDIAL.MSG.10": "phoneNumber: ${number} doesn't have a valid format.",
+    "UV.PREDIAL.MSG.11": "email: ${email} doesn't have a valid format.",
+    "UV.PREDIAL.MSG.12": "the email: ${email} is already registered.",
+    "UV.PREDIAL.MSG.13": "an error occurred while trying to save the owner."
+}

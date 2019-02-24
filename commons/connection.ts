@@ -8,7 +8,7 @@ const password = process.env.DB_PASSWORD;
 const port = +process.env.DB_PORT;
 const database = process.env.DB_NAME;
 
-const connectionOpts: ConnectionOptions = {
+export const connectionOpts: ConnectionOptions = {
     type: 'mysql',
     host,
     port,
