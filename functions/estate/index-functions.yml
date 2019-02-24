@@ -1,3 +1,10 @@
+getEstateByCfn:
+  handler: functions/estate/details.handler
+  events:
+    - http:
+        path: estate/{cfn}
+        method: get
+
 createEstate:
   handler: functions/estate/create.handler
   events:

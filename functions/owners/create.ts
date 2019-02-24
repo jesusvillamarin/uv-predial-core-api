@@ -26,7 +26,7 @@ module.exports.handler = async (event, context, callback) => {
 
         console.info(`HANDLER. Ending function: ${ context.functionName } ...`);
         return Response.Ok({
-            message: `The owner has been created.`,
+            message: 'The owner has been created.',
             owner
         });
     }

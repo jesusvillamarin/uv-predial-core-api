@@ -26,7 +26,7 @@ module.exports.handler = async (event, context, callback) => {
 
         console.info(`HANDLER. Ending function: ${ context.functionName } ...`);
         return Response.Ok({
-            message: `The debt has been created.`,
+            message: 'The debt has been created.',
             debt
         });
     }

@@ -124,6 +124,8 @@ export class Estate extends BaseEntity {
 
     static getByCfn(cfn: number) {
         return this.createQueryBuilder('estate')
+            .leftJoinAndSelect('estate.owner', 'owner')
+            .leftJoinAndSelect('estate.debts', 'debts')
             .where('estate.cfn = :cfn', { cfn })
             .getOne();
     }

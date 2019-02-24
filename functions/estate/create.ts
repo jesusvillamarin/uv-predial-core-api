@@ -31,7 +31,7 @@ module.exports.handler = async (event, context, callback) => {
 
         console.info(`HANDLER. Ending function: ${ context.functionName } ...`);
         return Response.Ok({
-            message: `The estate has been created.`,
+            message: 'The estate has been created.',
             estate
         });
     }
