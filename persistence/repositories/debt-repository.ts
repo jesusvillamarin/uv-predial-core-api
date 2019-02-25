@@ -74,4 +74,34 @@ export class DebtRepository {
         }
     }
 
+    static async updateDebtStatus(keys: number[]) {
+        console.info('REPOSITORY. Starting updateDebtStatus ...');
+
+        let conn: Connection;
+        try {
+            conn = await pool;
+            if(!conn || !conn.isConnected)
+                conn = await createConnection(connectionOpts);
+
+            const result = await Debt.updateStatus(keys);
+
+            console.info('REPOSITORY. Ending updateDebtStatus ...');
+            return result;
+        }
+        catch(errors) {
+            console.error('REPOSITORY. Error exception.');
+            if(conn) {
+                try {
+                    await conn.close();
+                }
+                catch(errors) {
+                    console.error('Error when trying to close the connection to the database.');
+                    throw new InternalServerException('UV.PREDIAL.COMMON.500', { errors });
+                }
+            }
+
+            throw new InternalServerException('UV.PREDIAL.COMMON.500', { errors });
+        }
+    }
+
 }

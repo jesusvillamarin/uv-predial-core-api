@@ -47,5 +47,9 @@
     "UV.PREDIAL.MSG.42": "initialTax or totalTax don't have a valid format.",
     "UV.PREDIAL.MSG.43": "monthlyInterest or totalInterest don't have a valid format.",
     "UV.PREDIAL.MSG.44": "the estate with the cfn: ${cfn} isn't registered in the database.",
-    "UV.PREDIAL.MSG.45": "the estate with the cck: ${cck} isn't registered in the database."
+    "UV.PREDIAL.MSG.45": "the estate with the cck: ${cck} isn't registered in the database.",
+    "UV.PREDIAL.MSG.46": "an error occurred while trying to update some fields.",
+    "UV.PREDIAL.MSG.47": "the keys are required.",
+    "UV.PREDIAL.MSG.48": "the ctc: ${ctc} doesn't have a valid format.",
+    "UV.PREDIAL.MSG.49": "the debt with the: ${ctc} isn't registered in the database."
 }

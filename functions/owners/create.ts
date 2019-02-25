@@ -25,14 +25,14 @@ module.exports.handler = async (event, context, callback) => {
         const owner = await OwnerService.createOwner(body);
 
         console.info(`HANDLER. Ending function: ${ context.functionName } ...`);
-        return Response.Ok({
+        return Response.Created({
             message: 'The owner has been created.',
             owner
         });
     }
     catch(errors) {
         console.error('HANDLER. Error exception.');
-        if(errors instanceof BadRequestException) return handlerException(errors);
+        if(!(errors instanceof InternalServerException)) return handlerException(errors);
         return handlerException(new InternalServerException('UV.PREDIAL.COMMON.500', { errors }));
     }
 };

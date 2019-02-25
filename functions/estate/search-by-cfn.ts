@@ -11,8 +11,8 @@ module.exports.handler = async (event, context, callback) => {
         const { cfn } = event.queryStringParameters;
 
         if(!cfn) throw new BadRequestException('UV.PREDIAL.MSG.16');
-        if(isNaN(+cfn)) throw new BadRequestException('UV.PREDIAL.MGS.21', { cfn: cfn });
-        if(cfn.length != 8) throw new BadRequestException('UV.PREDIAL.MGS.22', { cfn: cfn });
+        if(isNaN(+cfn)) throw new BadRequestException('UV.PREDIAL.MSG.21', { cfn: cfn });
+        if(cfn.length != 8) throw new BadRequestException('UV.PREDIAL.MSG.22', { cfn: cfn });
 
         const estate = await EstateService.getEstateByCfn(+cfn);
 
@@ -24,7 +24,7 @@ module.exports.handler = async (event, context, callback) => {
     }
     catch(errors) {
         console.error('HANDLER. Error exception.');
-        if(errors instanceof BadRequestException) return handlerException(errors);
+        if(!(errors instanceof InternalServerException)) return handlerException(errors);
         return handlerException(new InternalServerException('UV.PREDIAL.COMMON.500', { errors }));
     }
 };

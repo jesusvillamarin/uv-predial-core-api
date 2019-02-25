@@ -4,3 +4,10 @@ createDebt:
     - http:
         path: debts
         method: post
+
+payDebts:
+  handler: functions/debts/pay-debts.handler
+  events:
+    - http:
+        path: debts/pay
+        method: post

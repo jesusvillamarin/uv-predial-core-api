@@ -1,6 +1,7 @@
-import { Entity, BaseEntity, PrimaryColumn, Column, Timestamp, ManyToOne, Double, JoinColumn } from 'typeorm';
+import { Entity, BaseEntity, PrimaryColumn, Column, Timestamp, ManyToOne, JoinColumn } from 'typeorm';
 import { PaymentStatusEnum } from '@commons/enums';
 import { Estate } from './estate-entity';
+import {getConnection} from "typeorm";
 
 @Entity({ name: 'DEBT' })
 export class Debt extends BaseEntity {
@@ -86,6 +87,43 @@ export class Debt extends BaseEntity {
         return this.createQueryBuilder('debt')
             .where('debt.ctc = :ctc', { ctc })
             .getOne();
+    }
+
+    static updateStatus = async (keys: number[]) => {
+        // get a connection and create a new query runner:
+        const connection = getConnection();
+        const queryRunner = connection.createQueryRunner();
+
+        // establish real database connection using query runner:
+        await queryRunner.connect();
+
+        // lets now open a new transaction:
+        await queryRunner.startTransaction();
+
+        let result = keys;
+        try {
+            // executing operations:
+            for (let ctc of keys) {
+                await queryRunner.manager.createQueryBuilder()
+                .update(Debt)
+                .set({paymentStatus: PaymentStatusEnum.LIQUIDATED})
+                .where({ctc: ctc})
+                .execute();
+            }
+
+            // commit transaction now:
+            await queryRunner.commitTransaction();      
+        } catch (err) {
+            // rollback to the changes we made:
+            await queryRunner.rollbackTransaction();
+
+            result = null;
+        } finally {
+            // releasing query runner:
+            await queryRunner.release();
+
+            return result;
+        }
     }
 
 }

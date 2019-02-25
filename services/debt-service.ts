@@ -1,7 +1,8 @@
 import { DebtRepository } from "@repositories/debt-repository";
 import { EstateRepository } from "@repositories/estate-repository";
-import { ConflictException } from "@commons/exceptions";
+import { ConflictException, InternalServerException } from "@commons/exceptions";
 import { Debt } from "@entities/index";
+import Response from "@commons/response";
 
 export class DebtService {
 
@@ -21,6 +22,21 @@ export class DebtService {
 
         console.info('SERVICE. Ending createDebt ...');
         return debtCreated;
+    }
+
+    static async updateDebtsStatus(keys: number[]) {
+        console.info('SERVICE. Starting updateDebtsStatus ...');
+
+        for (let ctc of keys) {
+            const debt = await DebtRepository.getByCtc(ctc);
+            if(!debt) throw new ConflictException('UV.PREDIAL.MSG.49', { ctc });
+        }
+
+        const result = await DebtRepository.updateDebtStatus(keys);
+        if(!result) throw new ConflictException('UV.PREDIAL.MSG.46');
+
+        console.info('SERVICE. Ending updateDebtsStatus ...');
+        return result;
     }
 
 }
